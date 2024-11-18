@@ -1,0 +1,84 @@
+message PodcastHost {
+    string name = 1,
+    string gender = 2,
+    repeated string voiceTags = 3,
+    repeated string personalityTags = 4
+}
+
+message PodcastAudio {
+    bytes data = 1 
+}
+
+message PodcastEpisode {
+    int32 id = 1,
+    string name = 2,
+    Date date = 3,
+    string summary = 4,
+}
+
+message Podcast {
+    string name = 1,
+    repeated string topics = 2,
+    repeated PodcastHost hosts = 3,
+}
+
+message PodcastList {
+    repeated Podcast podcasts = 1
+}
+
+message PodcastEpisodeList {
+    repeated PodcastEpisode episodes = 1
+}
+
+message StreamPodcastRequest {
+    Podcast podcast = 1,
+    int32 episodeId = 2,
+}
+
+message User {
+    string name = 1,
+    string email = 2,
+}
+
+message Date {
+  // Year of the date. Must be from 1 to 9999, or 0 to specify a date without
+  // a year.
+  int32 year = 1;
+
+  // Month of a year. Must be from 1 to 12, or 0 to specify a year without a
+  // month and day.
+  int32 month = 2;
+
+  // Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
+  // to specify a year by itself or a year and month where the day isn't
+  // significant.
+  int32 day = 3;
+}
+
+message Empty {
+
+}
+
+message LoginRequest {
+    string email = 1,
+    string password = 2,
+}
+
+message LogoutRequest {
+    string email = 1,
+}
+
+service PodcastService {
+    rpc GetPodcastList(User) returns (PodcastList) {}
+    rpc GetPodcastEpisodeList(Podcast) returns (PodcastEpisodeList) {}
+    rpc StreamPodcast(StreamPodcastRequest) returns (stream PodcastAudio) {}
+    rpc NewPodcast(Podcast) returns (Podcast) {}
+    rpc EditPodcast(Podcast) returns (Podcast) {}
+    rpc DeletePodcast(Podcast) returns (Empty) {}
+}
+
+service UserService {
+    rpc RegisterUser(User) returns (User) {}
+    rpc LoginUser(LoginRequest) returns (User) {}
+    rpc LogoutUser(LogoutRequest) returns (Empty) {}
+}
