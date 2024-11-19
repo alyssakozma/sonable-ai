@@ -1,43 +1,45 @@
+syntax = "proto3";
+
 message PodcastHost {
-    string name = 1,
-    string gender = 2,
-    repeated string voiceTags = 3,
-    repeated string personalityTags = 4
+    string name = 1;
+    string gender = 2;
+    repeated string voiceTags = 3;
+    repeated string personalityTags = 4;
 }
 
 message PodcastAudio {
-    bytes data = 1 
+    bytes data = 1;
 }
 
 message PodcastEpisode {
-    int32 id = 1,
-    string name = 2,
-    Date date = 3,
-    string summary = 4,
+    int32 id = 1;
+    string name = 2;
+    Date date = 3;
+    string summary = 4;
 }
 
 message Podcast {
-    string name = 1,
-    repeated string topics = 2,
-    repeated PodcastHost hosts = 3,
+    string name = 1;
+    repeated string topics = 2;
+    repeated PodcastHost hosts = 3;
 }
 
 message PodcastList {
-    repeated Podcast podcasts = 1
+    repeated Podcast podcasts = 1;
 }
 
 message PodcastEpisodeList {
-    repeated PodcastEpisode episodes = 1
+    repeated PodcastEpisode episodes = 1;
 }
 
 message StreamPodcastRequest {
-    Podcast podcast = 1,
-    int32 episodeId = 2,
+    Podcast podcast = 1;
+    int32 episodeId = 2;
 }
 
 message User {
-    string name = 1,
-    string email = 2,
+    string name = 1;
+    string email = 2;
 }
 
 message Date {
@@ -60,12 +62,12 @@ message Empty {
 }
 
 message LoginRequest {
-    string email = 1,
-    string password = 2,
+    string email = 1;
+    string password = 2;
 }
 
 message LogoutRequest {
-    string email = 1,
+    string email = 1;
 }
 
 service PodcastService {
