@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+import "PodcastMessages.proto";
+import "Base.proto";
+
+
+/*
+    Podcast Service handles and stores podcasts.
+
+    In order to generate a new podcast, it requests data from 
+    the Aggregate service and sends it to the AI service. Then,
+    Podcast service stores it + some metadata and returns to
+    user.
+*/
+service PodcastService {
+
+    /*
+        Request a list of podcasts for a particular user.
+    */
+    rpc GetPodcastList(ListPodcastsRequest) returns (stream Podcast) {}
+
+    /*
+        Request a list of episodes for a particular podcast.
+    */
+    rpc GetPodcastEpisodeList(ListEpisodesRequest) returns (stream PodcastEpisode) {}
+
+    /*
+        Begin streaming a podcast episode.
+    */
+    rpc StreamPodcast(StreamPodcastRequest) returns (stream ByteData) {}
+
+    /*
+        Create a new podcast.
+    */
+    rpc NewPodcast(CreatePodcastRequest) returns (Podcast) {}
+
+    /*
+        Create a new episode.
+    */
+    rpc NewEpisode (CreateEpisodeRequest) returns (PodcastEpisode) {}
+
+    /*
+        Edit podcast parameters.
+    */
+    rpc EditPodcast(Podcast) returns (Podcast) {}
+
+    /*
+        Delete a podcast.
+    */
+    rpc DeletePodcast(Podcast) returns (Empty) {}
+}

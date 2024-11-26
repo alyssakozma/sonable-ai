@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+import "AIMessages.proto";
+import "PodcastMessages.proto";
+
+/*
+    AI service handles generative text and audio, assembling them into a
+    stream to be read by the service consumer.
+*/
+service AIService {
+    /*
+        Request to generate an episode. Returns raw audio data.
+    */
+    rpc generatePodcast(GenerateEpisodeRequest) returns (stream ByteData) {}
+}

@@ -1,0 +1,80 @@
+syntax = "proto3";
+
+import "Base.proto";
+
+/*
+    Contains lots of data that will be used to personalize the voice and personalities of each host.
+*/
+message PodcastHost {
+    int32 id = 1;                       // for db storage
+    string name = 2;
+    string gender = 3;                  // describe your gender (or select it from some presets)
+    repeated Tag voiceTags = 4;         // tags that affect speech characteristics
+    repeated Tag personalityTags = 5;   // tags that affect the personality of the host
+}
+
+/*
+    A particular episode of a podcast.
+*/
+message PodcastEpisode {
+    int32 id = 1;           // for db storage
+    string name = 2;        // either generated or user defined
+    Date date = 3;          // date of generation
+    string summary = 4;     // summary of what is discussed in this episode
+}
+
+/*
+    Holds higher level information about the podcast. Topics discussed, hosts, etc.
+*/
+message Podcast {
+    int32 id = 1;                       // for db storage
+    string name = 2;                    // either generated or user defined
+    repeated Tag topics = 3;            // topics discussed
+    repeated PodcastHost hosts = 4;     // the hosts that will discuss
+}
+
+/*
+    Used to stream audio data.
+*/
+message ByteData {
+    bytes data = 1; //nom nom
+}
+
+/*
+    Request object, used to request a new stream for a particular podcast episode.
+*/
+message StreamPodcastRequest {
+    int32 podcastId = 1;
+    int32 episodeId = 2;
+}
+
+/*
+    Request object, used to create a new podcast.
+*/
+message CreatePodcastRequest {
+    int32 userId = 1;
+    Podcast podcast = 2;
+}
+
+/*
+    Request object, used to request the generation of a new episode.
+*/
+message CreateEpisodeRequest {
+    int32 userId = 1;       // requesting user
+    int32 podcastId = 2;
+}
+
+/*
+    Request object, used to request a list of a particular podcast's episodes.
+*/
+message ListEpisodesRequest {
+    int32 userId = 1;       // requesting user
+    int32 podcastId = 2;
+}
+
+/*
+    Request object, used to request a list of a user's podcasts.
+*/
+message ListPodcastsRequest {
+    int32 userId = 1;
+}

@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+import "Base.proto";
+
+//enum
+
+enum DataSourceType {
+    TEXT = 0;
+    VIDEO = 1;
+    AUDIO = 2;
+}
+
+/*
+    Represents a text, video, or audio source. (e.g. abc.com, bloomberg.com, twitter maybe in the future?)
+*/
+message DataSource {
+    int32 id = 1;               // for db storage
+    string name = 2;            // example: Bloomberg
+    string baseUrl = 3;         // example: "https://www.bloomberg.com/
+}
+
+/*
+    Represents a particular "article." This can be text, video, or audio.
+*/
+message ArticleData {
+    int32 id = 1;                           // for caching
+    DataSource source = 2;                  // the source we pulled this from
+    string url = 3;                         // full URL to the article
+    string title = 4;                       // article title
+    string content = 5;                     // full body of content
+    repeated Tag tags = 6;                  // keyword tags for searching during future podcast generation
+    optional string processedText = 7;      // processed text, ready to feed AI
+    Date date = 8;                          // date article was posted
+    DataSourceType type = 9;                // TEXT, AUDIO, or VIDEO
+}
+
+/*
+    Request object for an aggregate of processed articles related to the input Tags.
+*/
+message AggregateRequest {
+    int32 userId = 1;                       // the user we are requesting content for
+    repeated Tag tags = 2;                  // keywords, topics, etc
+    repeated DataSource sources = 3;        // sources to pull from
+    repeated DataSource ignoreSources = 4;  // sources to ignore
+}

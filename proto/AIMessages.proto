@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+import "AggregateMessages.proto";
+
+/*
+    Request object for generating a podcast episode.
+*/
+message GenerateEpisodeRequest {
+    int32 podcastId = 1;            // (get data on hosts and stuff from this)
+    repeated ArticleData data = 2;  // pre-processed articles to ingest
+}

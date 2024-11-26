@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+import "UserMessages.proto";
+import "Base.proto";
+
+/*
+    Users Service handles auth and user data changes.
+*/
+service UserService {
+    rpc RegisterUser(User) returns (User) {}
+    rpc LoginUser(LoginRequest) returns (User) {}
+    rpc LogoutUser(LogoutRequest) returns (Empty) {}
+}

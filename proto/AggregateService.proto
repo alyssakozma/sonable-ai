@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+import "AggregateMessages.proto";
+
+/**
+ * Aggregate service handles ingestion and pre-processing of
+ * article, video, and audio sources into AI-ready text. We also
+ * store information about different sources and articles, and
+ * apply weights to them here to curate our news.
+*/
+service AggregateService {
+    /*
+        Request for an aggregate of processed ArticleData.
+    */
+    rpc requestAggregate(AggregateRequest) returns (stream ArticleData) {}
+}
