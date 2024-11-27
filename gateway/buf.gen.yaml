@@ -9,3 +9,10 @@ plugins:
   - plugin: grpc-gateway
     out: generated
     opt: paths=source_relative
+  - plugin: dart
+    out: ../lib/services
+  - plugin: doc
+    out: ./doc
+    opt: markdown,DOCS.md
+  - plugin: python
+    out: ../server/generated

@@ -26,6 +26,7 @@ const (
 	PodcastService_NewEpisode_FullMethodName            = "/generated.PodcastService/NewEpisode"
 	PodcastService_EditPodcast_FullMethodName           = "/generated.PodcastService/EditPodcast"
 	PodcastService_DeletePodcast_FullMethodName         = "/generated.PodcastService/DeletePodcast"
+	PodcastService_HealthCheck_FullMethodName           = "/generated.PodcastService/HealthCheck"
 )
 
 // PodcastServiceClient is the client API for PodcastService service.
@@ -60,6 +61,9 @@ type PodcastServiceClient interface {
 	//
 	//Delete a podcast.
 	DeletePodcast(ctx context.Context, in *Podcast, opts ...grpc.CallOption) (*Empty, error)
+	//
+	//Health check.
+	HealthCheck(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*PodcastServiceHealthResponse, error)
 }
 
 type podcastServiceClient struct {
@@ -167,6 +171,16 @@ func (c *podcastServiceClient) DeletePodcast(ctx context.Context, in *Podcast, o
 	return out, nil
 }
 
+func (c *podcastServiceClient) HealthCheck(ctx context.Context, in *Empty, opts ...grpc.CallOption) (*PodcastServiceHealthResponse, error) {
+	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
+	out := new(PodcastServiceHealthResponse)
+	err := c.cc.Invoke(ctx, PodcastService_HealthCheck_FullMethodName, in, out, cOpts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // PodcastServiceServer is the server API for PodcastService service.
 // All implementations must embed UnimplementedPodcastServiceServer
 // for forward compatibility.
@@ -199,6 +213,9 @@ type PodcastServiceServer interface {
 	//
 	//Delete a podcast.
 	DeletePodcast(context.Context, *Podcast) (*Empty, error)
+	//
+	//Health check.
+	HealthCheck(context.Context, *Empty) (*PodcastServiceHealthResponse, error)
 	mustEmbedUnimplementedPodcastServiceServer()
 }
 
@@ -229,6 +246,9 @@ func (UnimplementedPodcastServiceServer) EditPodcast(context.Context, *Podcast) 
 }
 func (UnimplementedPodcastServiceServer) DeletePodcast(context.Context, *Podcast) (*Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeletePodcast not implemented")
+}
+func (UnimplementedPodcastServiceServer) HealthCheck(context.Context, *Empty) (*PodcastServiceHealthResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method HealthCheck not implemented")
 }
 func (UnimplementedPodcastServiceServer) mustEmbedUnimplementedPodcastServiceServer() {}
 func (UnimplementedPodcastServiceServer) testEmbeddedByValue()                        {}
@@ -356,6 +376,24 @@ func _PodcastService_DeletePodcast_Handler(srv interface{}, ctx context.Context,
 	return interceptor(ctx, in, info, handler)
 }
 
+func _PodcastService_HealthCheck_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(Empty)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(PodcastServiceServer).HealthCheck(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: PodcastService_HealthCheck_FullMethodName,
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(PodcastServiceServer).HealthCheck(ctx, req.(*Empty))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // PodcastService_ServiceDesc is the grpc.ServiceDesc for PodcastService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -378,6 +416,10 @@ var PodcastService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "DeletePodcast",
 			Handler:    _PodcastService_DeletePodcast_Handler,
+		},
+		{
+			MethodName: "HealthCheck",
+			Handler:    _PodcastService_HealthCheck_Handler,
 		},
 	},
 	Streams: []grpc.StreamDesc{

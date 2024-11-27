@@ -82,3 +82,10 @@ message ListEpisodesRequest {
 message ListPodcastsRequest {
     int32 userId = 1;
 }
+
+/*
+    Health response object.
+*/
+message PodcastServiceHealthResponse {
+    int32 status = 1;
+}

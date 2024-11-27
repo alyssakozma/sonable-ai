@@ -88,4 +88,13 @@ service PodcastService {
             body: "*"
         };
     }
+
+    /*
+        Health check.
+    */
+    rpc HealthCheck(Empty) returns (PodcastServiceHealthResponse) {
+        option (google.api.http) = {
+            get: "/v1/podcasts/health"
+        };
+    }
 }
