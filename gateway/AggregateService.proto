@@ -17,7 +17,7 @@ service AggregateService {
     */
     rpc requestAggregate(AggregateRequest) returns (stream ArticleData) {
         option (google.api.http) = {
-            post: "/v1/message"
+            post: "/v1/aggregate/requestAggregate"
             body: "*"
         };
     }

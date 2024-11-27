@@ -4,6 +4,7 @@ option go_package = "./sonable";
 
 import "AIMessages.proto";
 import "PodcastMessages.proto";
+import "google/api/annotations.proto";
 
 /*
     AI service handles generative text and audio, assembling them into a
@@ -13,5 +14,10 @@ service AIService {
     /*
         Request to generate an episode. Returns raw audio data.
     */
-    rpc generatePodcast(GenerateEpisodeRequest) returns (stream ByteData) {}
+    rpc generatePodcast(GenerateEpisodeRequest) returns (stream ByteData) {
+        option (google.api.http) = {
+            post: "/v1/aiService/generatePodcast"
+            body: "*"
+        };
+    }
 }

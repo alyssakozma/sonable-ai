@@ -111,7 +111,7 @@ func RegisterAggregateServiceHandlerClient(ctx context.Context, mux *runtime.Ser
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/.AggregateService/RequestAggregate", runtime.WithHTTPPathPattern("/v1/message"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/.AggregateService/RequestAggregate", runtime.WithHTTPPathPattern("/v1/aggregate/requestAggregate"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -128,7 +128,7 @@ func RegisterAggregateServiceHandlerClient(ctx context.Context, mux *runtime.Ser
 }
 
 var (
-	pattern_AggregateService_RequestAggregate_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1}, []string{"v1", "message"}, ""))
+	pattern_AggregateService_RequestAggregate_0 = runtime.MustPattern(runtime.NewPattern(1, []int{2, 0, 2, 1, 2, 2}, []string{"v1", "aggregate", "requestAggregate"}, ""))
 )
 
 var (

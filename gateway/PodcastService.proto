@@ -5,6 +5,7 @@ option go_package = "./sonable";
 import "PodcastMessages.proto";
 import "Base.proto";
 
+import "google/api/annotations.proto";
 
 /*
     Podcast Service handles and stores podcasts.
@@ -19,35 +20,70 @@ service PodcastService {
     /*
         Request a list of podcasts for a particular user.
     */
-    rpc GetPodcastList(ListPodcastsRequest) returns (stream Podcast) {}
+    rpc GetPodcastList(ListPodcastsRequest) returns (stream Podcast) {
+        option (google.api.http) = {
+            post: "/v1/podcasts/getPodcasts"
+            body: "*"
+        };
+    }
 
     /*
         Request a list of episodes for a particular podcast.
     */
-    rpc GetPodcastEpisodeList(ListEpisodesRequest) returns (stream PodcastEpisode) {}
+    rpc GetPodcastEpisodeList(ListEpisodesRequest) returns (stream PodcastEpisode) {
+        option (google.api.http) = {
+            post: "/v1/podcasts/getEpisodes"
+            body: "*"
+        };
+    }
 
     /*
         Begin streaming a podcast episode.
     */
-    rpc StreamPodcast(StreamPodcastRequest) returns (stream ByteData) {}
+    rpc StreamPodcast(StreamPodcastRequest) returns (stream ByteData) {
+        option (google.api.http) = {
+            post: "/v1/podcasts/stream"
+            body: "*"
+        };
+    }
 
     /*
         Create a new podcast.
     */
-    rpc NewPodcast(CreatePodcastRequest) returns (Podcast) {}
+    rpc NewPodcast(CreatePodcastRequest) returns (Podcast) {
+        option (google.api.http) = {
+            post: "/v1/podcasts/newPodcast"
+            body: "*"
+        };
+    }
 
     /*
         Create a new episode.
     */
-    rpc NewEpisode (CreateEpisodeRequest) returns (PodcastEpisode) {}
+    rpc NewEpisode (CreateEpisodeRequest) returns (PodcastEpisode) {
+        option (google.api.http) = {
+            post: "/v1/podcasts/newEpisode"
+            body: "*"
+        };
+    }
 
     /*
         Edit podcast parameters.
     */
-    rpc EditPodcast(Podcast) returns (Podcast) {}
+    rpc EditPodcast(Podcast) returns (Podcast) {
+        option (google.api.http) = {
+            post: "/v1/podcast/editPodcast"
+            body: "*"
+        };
+    }
 
     /*
         Delete a podcast.
     */
-    rpc DeletePodcast(Podcast) returns (Empty) {}
+    rpc DeletePodcast(Podcast) returns (Empty) {
+        option (google.api.http) = {
+            post: "/v1/podcasts/deletePodcast"
+            body: "*"
+        };
+    }
 }
