@@ -2,11 +2,11 @@
 // source: AggregateService.proto
 
 /*
-Package sonable is a reverse proxy.
+Package sonable_ai is a reverse proxy.
 
 It translates gRPC into RESTful JSON APIs.
 */
-package sonable
+package sonable_ai
 
 import (
 	"context"
@@ -111,7 +111,7 @@ func RegisterAggregateServiceHandlerClient(ctx context.Context, mux *runtime.Ser
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/.AggregateService/RequestAggregate", runtime.WithHTTPPathPattern("/v1/aggregate/requestAggregate"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/generated.AggregateService/RequestAggregate", runtime.WithHTTPPathPattern("/v1/aggregate/requestAggregate"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return

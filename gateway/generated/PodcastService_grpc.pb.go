@@ -4,7 +4,7 @@
 // - protoc             (unknown)
 // source: PodcastService.proto
 
-package sonable
+package sonable_ai
 
 import (
 	context "context"
@@ -19,13 +19,13 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	PodcastService_GetPodcastList_FullMethodName        = "/PodcastService/GetPodcastList"
-	PodcastService_GetPodcastEpisodeList_FullMethodName = "/PodcastService/GetPodcastEpisodeList"
-	PodcastService_StreamPodcast_FullMethodName         = "/PodcastService/StreamPodcast"
-	PodcastService_NewPodcast_FullMethodName            = "/PodcastService/NewPodcast"
-	PodcastService_NewEpisode_FullMethodName            = "/PodcastService/NewEpisode"
-	PodcastService_EditPodcast_FullMethodName           = "/PodcastService/EditPodcast"
-	PodcastService_DeletePodcast_FullMethodName         = "/PodcastService/DeletePodcast"
+	PodcastService_GetPodcastList_FullMethodName        = "/generated.PodcastService/GetPodcastList"
+	PodcastService_GetPodcastEpisodeList_FullMethodName = "/generated.PodcastService/GetPodcastEpisodeList"
+	PodcastService_StreamPodcast_FullMethodName         = "/generated.PodcastService/StreamPodcast"
+	PodcastService_NewPodcast_FullMethodName            = "/generated.PodcastService/NewPodcast"
+	PodcastService_NewEpisode_FullMethodName            = "/generated.PodcastService/NewEpisode"
+	PodcastService_EditPodcast_FullMethodName           = "/generated.PodcastService/EditPodcast"
+	PodcastService_DeletePodcast_FullMethodName         = "/generated.PodcastService/DeletePodcast"
 )
 
 // PodcastServiceClient is the client API for PodcastService service.
@@ -360,7 +360,7 @@ func _PodcastService_DeletePodcast_Handler(srv interface{}, ctx context.Context,
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var PodcastService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "PodcastService",
+	ServiceName: "generated.PodcastService",
 	HandlerType: (*PodcastServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{

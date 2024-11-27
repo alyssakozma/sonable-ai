@@ -1,24 +1,23 @@
-package main
+package sonable_ai
 
 import (
 	"context"
 	"log"
 	"net"
 
+	gw "github.com/alyssakozma/sonable-ai/generated"
 	"google.golang.org/grpc"
-
-	helloworldpb "github.com/myuser/myrepo/proto/helloworld"
 )
 
 type server struct {
-	helloworldpb.UnimplementedGreeterServer
+	gw.UnimplementedPodcastServiceServer
 }
 
 func NewServer() *server {
 	return &server{}
 }
 
-func (s *server) SayHello(ctx context.Context, in *helloworldpb.HelloRequest) (*helloworldpb.HelloReply, error) {
+func (s *server) SayHello(ctx context.Context, in *gw.ListPodcastsRequest) (*gw.Podcast, error) {
 	return &helloworldpb.HelloReply{Message: in.Name + " world"}, nil
 }
 

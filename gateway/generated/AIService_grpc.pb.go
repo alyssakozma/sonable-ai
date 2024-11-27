@@ -4,7 +4,7 @@
 // - protoc             (unknown)
 // source: AIService.proto
 
-package sonable
+package sonable_ai
 
 import (
 	context "context"
@@ -19,7 +19,7 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	AIService_GeneratePodcast_FullMethodName = "/AIService/generatePodcast"
+	AIService_GeneratePodcast_FullMethodName = "/generated.AIService/generatePodcast"
 )
 
 // AIServiceClient is the client API for AIService service.
@@ -120,7 +120,7 @@ type AIService_GeneratePodcastServer = grpc.ServerStreamingServer[ByteData]
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var AIService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "AIService",
+	ServiceName: "generated.AIService",
 	HandlerType: (*AIServiceServer)(nil),
 	Methods:     []grpc.MethodDesc{},
 	Streams: []grpc.StreamDesc{

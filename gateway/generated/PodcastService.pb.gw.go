@@ -2,11 +2,11 @@
 // source: PodcastService.proto
 
 /*
-Package sonable is a reverse proxy.
+Package sonable_ai is a reverse proxy.
 
 It translates gRPC into RESTful JSON APIs.
 */
-package sonable
+package sonable_ai
 
 import (
 	"context"
@@ -223,7 +223,7 @@ func RegisterPodcastServiceHandlerServer(ctx context.Context, mux *runtime.Serve
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/.PodcastService/NewPodcast", runtime.WithHTTPPathPattern("/v1/podcasts/newPodcast"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/generated.PodcastService/NewPodcast", runtime.WithHTTPPathPattern("/v1/podcasts/newPodcast"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -243,7 +243,7 @@ func RegisterPodcastServiceHandlerServer(ctx context.Context, mux *runtime.Serve
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/.PodcastService/NewEpisode", runtime.WithHTTPPathPattern("/v1/podcasts/newEpisode"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/generated.PodcastService/NewEpisode", runtime.WithHTTPPathPattern("/v1/podcasts/newEpisode"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -263,7 +263,7 @@ func RegisterPodcastServiceHandlerServer(ctx context.Context, mux *runtime.Serve
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/.PodcastService/EditPodcast", runtime.WithHTTPPathPattern("/v1/podcast/editPodcast"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/generated.PodcastService/EditPodcast", runtime.WithHTTPPathPattern("/v1/podcast/editPodcast"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -283,7 +283,7 @@ func RegisterPodcastServiceHandlerServer(ctx context.Context, mux *runtime.Serve
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/.PodcastService/DeletePodcast", runtime.WithHTTPPathPattern("/v1/podcasts/deletePodcast"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/generated.PodcastService/DeletePodcast", runtime.WithHTTPPathPattern("/v1/podcasts/deletePodcast"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -341,7 +341,7 @@ func RegisterPodcastServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/.PodcastService/GetPodcastList", runtime.WithHTTPPathPattern("/v1/podcasts/getPodcasts"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/generated.PodcastService/GetPodcastList", runtime.WithHTTPPathPattern("/v1/podcasts/getPodcasts"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -358,7 +358,7 @@ func RegisterPodcastServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/.PodcastService/GetPodcastEpisodeList", runtime.WithHTTPPathPattern("/v1/podcasts/getEpisodes"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/generated.PodcastService/GetPodcastEpisodeList", runtime.WithHTTPPathPattern("/v1/podcasts/getEpisodes"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -375,7 +375,7 @@ func RegisterPodcastServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/.PodcastService/StreamPodcast", runtime.WithHTTPPathPattern("/v1/podcasts/stream"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/generated.PodcastService/StreamPodcast", runtime.WithHTTPPathPattern("/v1/podcasts/stream"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -392,7 +392,7 @@ func RegisterPodcastServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/.PodcastService/NewPodcast", runtime.WithHTTPPathPattern("/v1/podcasts/newPodcast"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/generated.PodcastService/NewPodcast", runtime.WithHTTPPathPattern("/v1/podcasts/newPodcast"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -409,7 +409,7 @@ func RegisterPodcastServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/.PodcastService/NewEpisode", runtime.WithHTTPPathPattern("/v1/podcasts/newEpisode"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/generated.PodcastService/NewEpisode", runtime.WithHTTPPathPattern("/v1/podcasts/newEpisode"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -426,7 +426,7 @@ func RegisterPodcastServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/.PodcastService/EditPodcast", runtime.WithHTTPPathPattern("/v1/podcast/editPodcast"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/generated.PodcastService/EditPodcast", runtime.WithHTTPPathPattern("/v1/podcast/editPodcast"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -443,7 +443,7 @@ func RegisterPodcastServiceHandlerClient(ctx context.Context, mux *runtime.Serve
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/.PodcastService/DeletePodcast", runtime.WithHTTPPathPattern("/v1/podcasts/deletePodcast"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/generated.PodcastService/DeletePodcast", runtime.WithHTTPPathPattern("/v1/podcasts/deletePodcast"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return

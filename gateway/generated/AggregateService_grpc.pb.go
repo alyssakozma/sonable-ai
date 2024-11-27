@@ -4,7 +4,7 @@
 // - protoc             (unknown)
 // source: AggregateService.proto
 
-package sonable
+package sonable_ai
 
 import (
 	context "context"
@@ -19,7 +19,7 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	AggregateService_RequestAggregate_FullMethodName = "/AggregateService/requestAggregate"
+	AggregateService_RequestAggregate_FullMethodName = "/generated.AggregateService/requestAggregate"
 )
 
 // AggregateServiceClient is the client API for AggregateService service.
@@ -126,7 +126,7 @@ type AggregateService_RequestAggregateServer = grpc.ServerStreamingServer[Articl
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var AggregateService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "AggregateService",
+	ServiceName: "generated.AggregateService",
 	HandlerType: (*AggregateServiceServer)(nil),
 	Methods:     []grpc.MethodDesc{},
 	Streams: []grpc.StreamDesc{

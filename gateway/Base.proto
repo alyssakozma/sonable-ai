@@ -1,6 +1,8 @@
 syntax = "proto3";
 
-option go_package = "./sonable";
+package generated;
+
+option go_package="github.com/alyssakozma/sonable-ai";
 
 /*
     A basic Date object from Google, because it isn't included in proto3.

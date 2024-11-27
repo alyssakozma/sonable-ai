@@ -1,6 +1,8 @@
 syntax = "proto3";
 
-option go_package = "./sonable";
+package generated;
+
+option go_package="github.com/alyssakozma/sonable-ai";
 
 import "PodcastMessages.proto";
 import "Base.proto";

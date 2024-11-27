@@ -2,11 +2,11 @@
 // source: UserService.proto
 
 /*
-Package sonable is a reverse proxy.
+Package sonable_ai is a reverse proxy.
 
 It translates gRPC into RESTful JSON APIs.
 */
-package sonable
+package sonable_ai
 
 import (
 	"context"
@@ -119,7 +119,7 @@ func RegisterUserServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/.UserService/RegisterUser", runtime.WithHTTPPathPattern("/v1/users/register"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/generated.UserService/RegisterUser", runtime.WithHTTPPathPattern("/v1/users/register"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -139,7 +139,7 @@ func RegisterUserServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/.UserService/LoginUser", runtime.WithHTTPPathPattern("/v1/users/login"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/generated.UserService/LoginUser", runtime.WithHTTPPathPattern("/v1/users/login"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -159,7 +159,7 @@ func RegisterUserServiceHandlerServer(ctx context.Context, mux *runtime.ServeMux
 		var stream runtime.ServerTransportStream
 		ctx = grpc.NewContextWithServerTransportStream(ctx, &stream)
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/.UserService/LogoutUser", runtime.WithHTTPPathPattern("/v1/users/logout"))
+		annotatedContext, err := runtime.AnnotateIncomingContext(ctx, mux, req, "/generated.UserService/LogoutUser", runtime.WithHTTPPathPattern("/v1/users/logout"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -217,7 +217,7 @@ func RegisterUserServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/.UserService/RegisterUser", runtime.WithHTTPPathPattern("/v1/users/register"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/generated.UserService/RegisterUser", runtime.WithHTTPPathPattern("/v1/users/register"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -234,7 +234,7 @@ func RegisterUserServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/.UserService/LoginUser", runtime.WithHTTPPathPattern("/v1/users/login"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/generated.UserService/LoginUser", runtime.WithHTTPPathPattern("/v1/users/login"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return
@@ -251,7 +251,7 @@ func RegisterUserServiceHandlerClient(ctx context.Context, mux *runtime.ServeMux
 		ctx, cancel := context.WithCancel(req.Context())
 		defer cancel()
 		inboundMarshaler, outboundMarshaler := runtime.MarshalerForRequest(mux, req)
-		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/.UserService/LogoutUser", runtime.WithHTTPPathPattern("/v1/users/logout"))
+		annotatedContext, err := runtime.AnnotateContext(ctx, mux, req, "/generated.UserService/LogoutUser", runtime.WithHTTPPathPattern("/v1/users/logout"))
 		if err != nil {
 			runtime.HTTPError(ctx, mux, outboundMarshaler, w, req, err)
 			return

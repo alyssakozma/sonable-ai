@@ -4,7 +4,7 @@
 // - protoc             (unknown)
 // source: UserService.proto
 
-package sonable
+package sonable_ai
 
 import (
 	context "context"
@@ -19,9 +19,9 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	UserService_RegisterUser_FullMethodName = "/UserService/RegisterUser"
-	UserService_LoginUser_FullMethodName    = "/UserService/LoginUser"
-	UserService_LogoutUser_FullMethodName   = "/UserService/LogoutUser"
+	UserService_RegisterUser_FullMethodName = "/generated.UserService/RegisterUser"
+	UserService_LoginUser_FullMethodName    = "/generated.UserService/LoginUser"
+	UserService_LogoutUser_FullMethodName   = "/generated.UserService/LogoutUser"
 )
 
 // UserServiceClient is the client API for UserService service.
@@ -180,7 +180,7 @@ func _UserService_LogoutUser_Handler(srv interface{}, ctx context.Context, dec f
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var UserService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "UserService",
+	ServiceName: "generated.UserService",
 	HandlerType: (*UserServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
