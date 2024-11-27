@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+option go_package = "./sonable";
+
 /*
     A basic Date object from Google, because it isn't included in proto3.
 */

@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+option go_package = "./sonable";
+
 /*
     TODO: flesh this out
 */

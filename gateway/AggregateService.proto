@@ -1,6 +1,9 @@
 syntax = "proto3";
 
+option go_package = "./sonable";
+
 import "AggregateMessages.proto";
+import "google/api/annotations.proto";
 
 /**
  * Aggregate service handles ingestion and pre-processing of
@@ -12,5 +15,12 @@ service AggregateService {
     /*
         Request for an aggregate of processed ArticleData.
     */
-    rpc requestAggregate(AggregateRequest) returns (stream ArticleData) {}
+    rpc requestAggregate(AggregateRequest) returns (stream ArticleData) {
+        /*
+        option (google.api.https) = {
+            post: "/v1/message"
+            body: "*"
+        };
+        */
+    }
 }
