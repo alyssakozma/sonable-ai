@@ -13,7 +13,7 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'Base.pb.dart' as $3;
+import 'Base.pb.dart' as $0;
 
 ///
 /// Contains lots of data that will be used to personalize the voice and personalities of each host.
@@ -22,8 +22,8 @@ class PodcastHost extends $pb.GeneratedMessage {
     $core.int? id,
     $core.String? name,
     $core.String? gender,
-    $core.Iterable<$3.Tag>? voiceTags,
-    $core.Iterable<$3.Tag>? personalityTags,
+    $core.Iterable<$0.Tag>? voiceTags,
+    $core.Iterable<$0.Tag>? personalityTags,
   }) {
     final $result = create();
     if (id != null) {
@@ -47,12 +47,12 @@ class PodcastHost extends $pb.GeneratedMessage {
   factory PodcastHost.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory PodcastHost.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'PodcastHost', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'PodcastHost', package: const $pb.PackageName(_omitMessageNames ? '' : 'generated'), createEmptyInstance: create)
     ..a<$core.int>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.O3)
     ..aOS(2, _omitFieldNames ? '' : 'name')
     ..aOS(3, _omitFieldNames ? '' : 'gender')
-    ..pc<$3.Tag>(4, _omitFieldNames ? '' : 'voiceTags', $pb.PbFieldType.PM, protoName: 'voiceTags', subBuilder: $3.Tag.create)
-    ..pc<$3.Tag>(5, _omitFieldNames ? '' : 'personalityTags', $pb.PbFieldType.PM, protoName: 'personalityTags', subBuilder: $3.Tag.create)
+    ..pc<$0.Tag>(4, _omitFieldNames ? '' : 'voiceTags', $pb.PbFieldType.PM, protoName: 'voiceTags', subBuilder: $0.Tag.create)
+    ..pc<$0.Tag>(5, _omitFieldNames ? '' : 'personalityTags', $pb.PbFieldType.PM, protoName: 'personalityTags', subBuilder: $0.Tag.create)
     ..hasRequiredFields = false
   ;
 
@@ -105,10 +105,10 @@ class PodcastHost extends $pb.GeneratedMessage {
   void clearGender() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.List<$3.Tag> get voiceTags => $_getList(3);
+  $core.List<$0.Tag> get voiceTags => $_getList(3);
 
   @$pb.TagNumber(5)
-  $core.List<$3.Tag> get personalityTags => $_getList(4);
+  $core.List<$0.Tag> get personalityTags => $_getList(4);
 }
 
 ///
@@ -117,7 +117,7 @@ class PodcastEpisode extends $pb.GeneratedMessage {
   factory PodcastEpisode({
     $core.int? id,
     $core.String? name,
-    $3.Date? date,
+    $0.Date? date,
     $core.String? summary,
   }) {
     final $result = create();
@@ -139,10 +139,10 @@ class PodcastEpisode extends $pb.GeneratedMessage {
   factory PodcastEpisode.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory PodcastEpisode.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'PodcastEpisode', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'PodcastEpisode', package: const $pb.PackageName(_omitMessageNames ? '' : 'generated'), createEmptyInstance: create)
     ..a<$core.int>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.O3)
     ..aOS(2, _omitFieldNames ? '' : 'name')
-    ..aOM<$3.Date>(3, _omitFieldNames ? '' : 'date', subBuilder: $3.Date.create)
+    ..aOM<$0.Date>(3, _omitFieldNames ? '' : 'date', subBuilder: $0.Date.create)
     ..aOS(4, _omitFieldNames ? '' : 'summary')
     ..hasRequiredFields = false
   ;
@@ -187,15 +187,15 @@ class PodcastEpisode extends $pb.GeneratedMessage {
   void clearName() => clearField(2);
 
   @$pb.TagNumber(3)
-  $3.Date get date => $_getN(2);
+  $0.Date get date => $_getN(2);
   @$pb.TagNumber(3)
-  set date($3.Date v) { setField(3, v); }
+  set date($0.Date v) { setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasDate() => $_has(2);
   @$pb.TagNumber(3)
   void clearDate() => clearField(3);
   @$pb.TagNumber(3)
-  $3.Date ensureDate() => $_ensure(2);
+  $0.Date ensureDate() => $_ensure(2);
 
   @$pb.TagNumber(4)
   $core.String get summary => $_getSZ(3);
@@ -213,7 +213,7 @@ class Podcast extends $pb.GeneratedMessage {
   factory Podcast({
     $core.int? id,
     $core.String? name,
-    $core.Iterable<$3.Tag>? topics,
+    $core.Iterable<$0.Tag>? topics,
     $core.Iterable<PodcastHost>? hosts,
   }) {
     final $result = create();
@@ -235,10 +235,10 @@ class Podcast extends $pb.GeneratedMessage {
   factory Podcast.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory Podcast.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Podcast', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Podcast', package: const $pb.PackageName(_omitMessageNames ? '' : 'generated'), createEmptyInstance: create)
     ..a<$core.int>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.O3)
     ..aOS(2, _omitFieldNames ? '' : 'name')
-    ..pc<$3.Tag>(3, _omitFieldNames ? '' : 'topics', $pb.PbFieldType.PM, subBuilder: $3.Tag.create)
+    ..pc<$0.Tag>(3, _omitFieldNames ? '' : 'topics', $pb.PbFieldType.PM, subBuilder: $0.Tag.create)
     ..pc<PodcastHost>(4, _omitFieldNames ? '' : 'hosts', $pb.PbFieldType.PM, subBuilder: PodcastHost.create)
     ..hasRequiredFields = false
   ;
@@ -283,7 +283,7 @@ class Podcast extends $pb.GeneratedMessage {
   void clearName() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.List<$3.Tag> get topics => $_getList(2);
+  $core.List<$0.Tag> get topics => $_getList(2);
 
   @$pb.TagNumber(4)
   $core.List<PodcastHost> get hosts => $_getList(3);
@@ -305,7 +305,7 @@ class ByteData extends $pb.GeneratedMessage {
   factory ByteData.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory ByteData.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ByteData', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ByteData', package: const $pb.PackageName(_omitMessageNames ? '' : 'generated'), createEmptyInstance: create)
     ..a<$core.List<$core.int>>(1, _omitFieldNames ? '' : 'data', $pb.PbFieldType.OY)
     ..hasRequiredFields = false
   ;
@@ -361,7 +361,7 @@ class StreamPodcastRequest extends $pb.GeneratedMessage {
   factory StreamPodcastRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory StreamPodcastRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'StreamPodcastRequest', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'StreamPodcastRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'generated'), createEmptyInstance: create)
     ..a<$core.int>(1, _omitFieldNames ? '' : 'podcastId', $pb.PbFieldType.O3, protoName: 'podcastId')
     ..a<$core.int>(2, _omitFieldNames ? '' : 'episodeId', $pb.PbFieldType.O3, protoName: 'episodeId')
     ..hasRequiredFields = false
@@ -427,7 +427,7 @@ class CreatePodcastRequest extends $pb.GeneratedMessage {
   factory CreatePodcastRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory CreatePodcastRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreatePodcastRequest', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreatePodcastRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'generated'), createEmptyInstance: create)
     ..a<$core.int>(1, _omitFieldNames ? '' : 'userId', $pb.PbFieldType.O3, protoName: 'userId')
     ..aOM<Podcast>(2, _omitFieldNames ? '' : 'podcast', subBuilder: Podcast.create)
     ..hasRequiredFields = false
@@ -495,7 +495,7 @@ class CreateEpisodeRequest extends $pb.GeneratedMessage {
   factory CreateEpisodeRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory CreateEpisodeRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreateEpisodeRequest', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CreateEpisodeRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'generated'), createEmptyInstance: create)
     ..a<$core.int>(1, _omitFieldNames ? '' : 'userId', $pb.PbFieldType.O3, protoName: 'userId')
     ..a<$core.int>(2, _omitFieldNames ? '' : 'podcastId', $pb.PbFieldType.O3, protoName: 'podcastId')
     ..hasRequiredFields = false
@@ -561,7 +561,7 @@ class ListEpisodesRequest extends $pb.GeneratedMessage {
   factory ListEpisodesRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory ListEpisodesRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ListEpisodesRequest', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ListEpisodesRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'generated'), createEmptyInstance: create)
     ..a<$core.int>(1, _omitFieldNames ? '' : 'userId', $pb.PbFieldType.O3, protoName: 'userId')
     ..a<$core.int>(2, _omitFieldNames ? '' : 'podcastId', $pb.PbFieldType.O3, protoName: 'podcastId')
     ..hasRequiredFields = false
@@ -623,7 +623,7 @@ class ListPodcastsRequest extends $pb.GeneratedMessage {
   factory ListPodcastsRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
   factory ListPodcastsRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ListPodcastsRequest', createEmptyInstance: create)
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ListPodcastsRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'generated'), createEmptyInstance: create)
     ..a<$core.int>(1, _omitFieldNames ? '' : 'userId', $pb.PbFieldType.O3, protoName: 'userId')
     ..hasRequiredFields = false
   ;
@@ -657,6 +657,58 @@ class ListPodcastsRequest extends $pb.GeneratedMessage {
   $core.bool hasUserId() => $_has(0);
   @$pb.TagNumber(1)
   void clearUserId() => clearField(1);
+}
+
+///
+/// Health response object.
+class PodcastServiceHealthResponse extends $pb.GeneratedMessage {
+  factory PodcastServiceHealthResponse({
+    $core.int? status,
+  }) {
+    final $result = create();
+    if (status != null) {
+      $result.status = status;
+    }
+    return $result;
+  }
+  PodcastServiceHealthResponse._() : super();
+  factory PodcastServiceHealthResponse.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory PodcastServiceHealthResponse.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'PodcastServiceHealthResponse', package: const $pb.PackageName(_omitMessageNames ? '' : 'generated'), createEmptyInstance: create)
+    ..a<$core.int>(1, _omitFieldNames ? '' : 'status', $pb.PbFieldType.O3)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  PodcastServiceHealthResponse clone() => PodcastServiceHealthResponse()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  PodcastServiceHealthResponse copyWith(void Function(PodcastServiceHealthResponse) updates) => super.copyWith((message) => updates(message as PodcastServiceHealthResponse)) as PodcastServiceHealthResponse;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static PodcastServiceHealthResponse create() => PodcastServiceHealthResponse._();
+  PodcastServiceHealthResponse createEmptyInstance() => create();
+  static $pb.PbList<PodcastServiceHealthResponse> createRepeated() => $pb.PbList<PodcastServiceHealthResponse>();
+  @$core.pragma('dart2js:noInline')
+  static PodcastServiceHealthResponse getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PodcastServiceHealthResponse>(create);
+  static PodcastServiceHealthResponse? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.int get status => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set status($core.int v) { $_setSignedInt32(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasStatus() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearStatus() => clearField(1);
 }
 
 

@@ -4,7 +4,7 @@
 // - protoc             (unknown)
 // source: AIService.proto
 
-package sonable_ai
+package generated
 
 import (
 	context "context"

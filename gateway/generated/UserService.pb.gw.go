@@ -2,11 +2,11 @@
 // source: UserService.proto
 
 /*
-Package sonable_ai is a reverse proxy.
+Package generated is a reverse proxy.
 
 It translates gRPC into RESTful JSON APIs.
 */
-package sonable_ai
+package generated
 
 import (
 	"context"

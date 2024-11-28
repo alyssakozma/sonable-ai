@@ -138,6 +138,7 @@ Example of response:
 ]
 """
 
+
 from concurrent import futures
 import io
 import time
@@ -146,6 +147,9 @@ import torch
 from transformers import BarkModel, AutoProcessor, AutoTokenizer
 import os
 import numpy as np
+import sys
+
+sys.path.append('./generated')
 
 from tqdm.notebook import tqdm
 import warnings
@@ -156,8 +160,8 @@ from pydub import AudioSegment
 from scipy.io import wavfile
 import ast
 import grpc
-import schema_pb2
-import schema_pb2_grpc
+import generated.PodcastService_pb2 as PodcastService_pb2
+import generated.PodcastService_pb2_grpc as PodcastService_pb2_grpc
 
 device = "cpu"
 
@@ -321,20 +325,22 @@ def numpy_to_audio_segment(audio_arr, sampling_rate):
     # Convert to AudioSegment
     return AudioSegment.from_wav(byte_io) 
 
-class PodcastService(schema_pb2_grpc.PodcastServiceServicer):
+class PodcastService(PodcastService_pb2_grpc.PodcastServiceServicer):
     def StreamPodcast(self, request, context):
         pod = createPodcast("music")
         for x in range(len(pod.raw_data) / 4096):
             if x == 0:
                 continue
             chunk = pod.raw_data[(x-1)*4096:x*4096]
-            yield schema_pb2.PodcastAudio(data=chunk)
+            yield PodcastService_pb2.PodcastAudio(data=chunk)
             time.sleep(0.1)
+    def HealthCheck(self, request, context):
+        return PodcastService_pb2.PodcastServiceHealthResponse(status=1)
 
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
-    schema_pb2_grpc.add_PodcastServiceServicer_to_server(PodcastService(), server)
-    createPodcast("music")
+    PodcastService_pb2_grpc.add_PodcastServiceServicer_to_server(PodcastService(), server)
+    # createPodcast("music")
     server.add_insecure_port('[::]:50051')
     server.start()
     server.wait_for_termination()

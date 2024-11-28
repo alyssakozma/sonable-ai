@@ -9,5 +9,19 @@
 // ignore_for_file: non_constant_identifier_names, prefer_final_fields
 // ignore_for_file: unnecessary_import, unnecessary_this, unused_import
 
+import 'dart:async' as $async;
 import 'dart:core' as $core;
+
+import 'package:protobuf/protobuf.dart' as $pb;
+
+import 'AggregateMessages.pb.dart' as $1;
+
+class AggregateServiceApi {
+  $pb.RpcClient _client;
+  AggregateServiceApi(this._client);
+
+  $async.Future<$1.ArticleData> requestAggregate($pb.ClientContext? ctx, $1.AggregateRequest request) =>
+    _client.invoke<$1.ArticleData>(ctx, 'AggregateService', 'requestAggregate', request, $1.ArticleData())
+  ;
+}
 

@@ -18,12 +18,12 @@ const GenerateEpisodeRequest$json = {
   '1': 'GenerateEpisodeRequest',
   '2': [
     {'1': 'podcastId', '3': 1, '4': 1, '5': 5, '10': 'podcastId'},
-    {'1': 'data', '3': 2, '4': 3, '5': 11, '6': '.ArticleData', '10': 'data'},
+    {'1': 'data', '3': 2, '4': 3, '5': 11, '6': '.generated.ArticleData', '10': 'data'},
   ],
 };
 
 /// Descriptor for `GenerateEpisodeRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List generateEpisodeRequestDescriptor = $convert.base64Decode(
     'ChZHZW5lcmF0ZUVwaXNvZGVSZXF1ZXN0EhwKCXBvZGNhc3RJZBgBIAEoBVIJcG9kY2FzdElkEi'
-    'AKBGRhdGEYAiADKAsyDC5BcnRpY2xlRGF0YVIEZGF0YQ==');
+    'oKBGRhdGEYAiADKAsyFi5nZW5lcmF0ZWQuQXJ0aWNsZURhdGFSBGRhdGE=');
 

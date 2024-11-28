@@ -1,38 +1,32 @@
-package sonable_ai
+package main
 
 import (
 	"context"
+	"fmt"
 	"log"
-	"net"
+	"net/http"
 
 	gw "github.com/alyssakozma/sonable-ai/generated"
+	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/credentials/insecure"
 )
 
-type server struct {
-	gw.UnimplementedPodcastServiceServer
-}
-
-func NewServer() *server {
-	return &server{}
-}
-
-func (s *server) SayHello(ctx context.Context, in *gw.ListPodcastsRequest) (*gw.Podcast, error) {
-	return &helloworldpb.HelloReply{Message: in.Name + " world"}, nil
-}
-
 func main() {
-	// Create a listener on TCP port
-	lis, err := net.Listen("tcp", ":8080")
+	podcastsServiceAddr := "localhost:50051"
+	conn, err := grpc.NewClient(podcastsServiceAddr, grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
-		log.Fatalln("Failed to listen:", err)
+		log.Fatalf("Could not reach podcasts service.", err)
+	}
+	defer conn.Close()
+	mux := runtime.NewServeMux()
+	if err = gw.RegisterPodcastServiceHandler(context.Background(), mux, conn); err != nil {
+		log.Fatalf("Failed to register podcasts service.", err)
 	}
 
-	// Create a gRPC server object
-	s := grpc.NewServer()
-	// Attach the Greeter service to the server
-	helloworldpb.RegisterGreeterServer(s, &server{})
-	// Serve gRPC Server
-	log.Println("Serving gRPC on 0.0.0.0:8080")
-	log.Fatal(s.Serve(lis))
+	addr := "0.0.0.0:8080"
+	fmt.Println("API gateway is running on " + addr)
+	if err = http.ListenAndServe(addr, mux); err != nil {
+		log.Fatal(("Gateway server closed. Reason: "), err)
+	}
 }

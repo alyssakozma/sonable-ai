@@ -1,18 +1,35 @@
-version: v1
+version: v2
+managed:
+  enabled: true
+  override:
+    - file_option: go_package_prefix
+      value: github.com/alyssakozma/sonable-ai/generated
+  # Remove `except` field if googleapis is not used
+  disable:
+    - module: buf.build/googleapis/googleapis
+      file_option: go_package_prefix
 plugins:
-  - plugin: go
+  - remote: buf.build/grpc/go:v1.5.1
     out: generated
-    opt: paths=source_relative
-  - plugin: go-grpc
+    opt: 
+      - paths=source_relative
+  - remote: buf.build/protocolbuffers/go:v1.35.2
     out: generated
-    opt: paths=source_relative
-  - plugin: grpc-gateway
+    opt: 
+      - paths=source_relative
+  - remote: buf.build/grpc-ecosystem/gateway:v2.24.0
     out: generated
-    opt: paths=source_relative
-  - plugin: dart
+    opt: 
+      - paths=source_relative
+  - remote: buf.build/protocolbuffers/dart:v21.1.2
     out: ../lib/services
-  - plugin: doc
-    out: ./doc
-    opt: markdown,DOCS.md
-  - plugin: python
+  #- remote: doc
+  #  out: ./doc
+  #  opt: 
+  #    - markdown,DOCS.md
+  - remote: buf.build/protocolbuffers/python:v28.3
     out: ../server/generated
+  - remote: buf.build/grpc/python:v1.68.0
+    out: ../server/generated
+inputs:
+  - directory: .
