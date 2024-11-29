@@ -13,14 +13,14 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'AggregateMessages.pb.dart' as $1;
+import 'AggregateMessages.pb.dart' as $2;
 
 ///
 /// Request object for generating a podcast episode.
 class GenerateEpisodeRequest extends $pb.GeneratedMessage {
   factory GenerateEpisodeRequest({
     $core.int? podcastId,
-    $core.Iterable<$1.ArticleData>? data,
+    $core.Iterable<$2.ArticleData>? data,
   }) {
     final $result = create();
     if (podcastId != null) {
@@ -37,7 +37,7 @@ class GenerateEpisodeRequest extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'GenerateEpisodeRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'generated'), createEmptyInstance: create)
     ..a<$core.int>(1, _omitFieldNames ? '' : 'podcastId', $pb.PbFieldType.O3, protoName: 'podcastId')
-    ..pc<$1.ArticleData>(2, _omitFieldNames ? '' : 'data', $pb.PbFieldType.PM, subBuilder: $1.ArticleData.create)
+    ..pc<$2.ArticleData>(2, _omitFieldNames ? '' : 'data', $pb.PbFieldType.PM, subBuilder: $2.ArticleData.create)
     ..hasRequiredFields = false
   ;
 
@@ -72,7 +72,7 @@ class GenerateEpisodeRequest extends $pb.GeneratedMessage {
   void clearPodcastId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.List<$1.ArticleData> get data => $_getList(1);
+  $core.List<$2.ArticleData> get data => $_getList(1);
 }
 
 

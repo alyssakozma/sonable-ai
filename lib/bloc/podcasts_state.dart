@@ -2,7 +2,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
-import "../services/schema.pb.dart";
+import "../services/PodcastMessages.pb.dart";
 
 @immutable
 class PodcastsState extends Equatable {

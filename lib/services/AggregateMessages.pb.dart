@@ -14,7 +14,7 @@ import 'dart:core' as $core;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import 'AggregateMessages.pbenum.dart';
-import 'Base.pb.dart' as $0;
+import 'Base.pb.dart' as $3;
 
 export 'AggregateMessages.pbenum.dart';
 
@@ -107,9 +107,9 @@ class ArticleData extends $pb.GeneratedMessage {
     $core.String? url,
     $core.String? title,
     $core.String? content,
-    $core.Iterable<$0.Tag>? tags,
+    $core.Iterable<$3.Tag>? tags,
     $core.String? processedText,
-    $0.Date? date,
+    $3.Date? date,
     DataSourceType? type,
   }) {
     final $result = create();
@@ -152,9 +152,9 @@ class ArticleData extends $pb.GeneratedMessage {
     ..aOS(3, _omitFieldNames ? '' : 'url')
     ..aOS(4, _omitFieldNames ? '' : 'title')
     ..aOS(5, _omitFieldNames ? '' : 'content')
-    ..pc<$0.Tag>(6, _omitFieldNames ? '' : 'tags', $pb.PbFieldType.PM, subBuilder: $0.Tag.create)
+    ..pc<$3.Tag>(6, _omitFieldNames ? '' : 'tags', $pb.PbFieldType.PM, subBuilder: $3.Tag.create)
     ..aOS(7, _omitFieldNames ? '' : 'processedText', protoName: 'processedText')
-    ..aOM<$0.Date>(8, _omitFieldNames ? '' : 'date', subBuilder: $0.Date.create)
+    ..aOM<$3.Date>(8, _omitFieldNames ? '' : 'date', subBuilder: $3.Date.create)
     ..e<DataSourceType>(9, _omitFieldNames ? '' : 'type', $pb.PbFieldType.OE, defaultOrMaker: DataSourceType.TEXT, valueOf: DataSourceType.valueOf, enumValues: DataSourceType.values)
     ..hasRequiredFields = false
   ;
@@ -228,7 +228,7 @@ class ArticleData extends $pb.GeneratedMessage {
   void clearContent() => clearField(5);
 
   @$pb.TagNumber(6)
-  $core.List<$0.Tag> get tags => $_getList(5);
+  $core.List<$3.Tag> get tags => $_getList(5);
 
   @$pb.TagNumber(7)
   $core.String get processedText => $_getSZ(6);
@@ -240,15 +240,15 @@ class ArticleData extends $pb.GeneratedMessage {
   void clearProcessedText() => clearField(7);
 
   @$pb.TagNumber(8)
-  $0.Date get date => $_getN(7);
+  $3.Date get date => $_getN(7);
   @$pb.TagNumber(8)
-  set date($0.Date v) { setField(8, v); }
+  set date($3.Date v) { setField(8, v); }
   @$pb.TagNumber(8)
   $core.bool hasDate() => $_has(7);
   @$pb.TagNumber(8)
   void clearDate() => clearField(8);
   @$pb.TagNumber(8)
-  $0.Date ensureDate() => $_ensure(7);
+  $3.Date ensureDate() => $_ensure(7);
 
   @$pb.TagNumber(9)
   DataSourceType get type => $_getN(8);
@@ -265,7 +265,7 @@ class ArticleData extends $pb.GeneratedMessage {
 class AggregateRequest extends $pb.GeneratedMessage {
   factory AggregateRequest({
     $core.int? userId,
-    $core.Iterable<$0.Tag>? tags,
+    $core.Iterable<$3.Tag>? tags,
     $core.Iterable<DataSource>? sources,
     $core.Iterable<DataSource>? ignoreSources,
   }) {
@@ -290,7 +290,7 @@ class AggregateRequest extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'AggregateRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'generated'), createEmptyInstance: create)
     ..a<$core.int>(1, _omitFieldNames ? '' : 'userId', $pb.PbFieldType.O3, protoName: 'userId')
-    ..pc<$0.Tag>(2, _omitFieldNames ? '' : 'tags', $pb.PbFieldType.PM, subBuilder: $0.Tag.create)
+    ..pc<$3.Tag>(2, _omitFieldNames ? '' : 'tags', $pb.PbFieldType.PM, subBuilder: $3.Tag.create)
     ..pc<DataSource>(3, _omitFieldNames ? '' : 'sources', $pb.PbFieldType.PM, subBuilder: DataSource.create)
     ..pc<DataSource>(4, _omitFieldNames ? '' : 'ignoreSources', $pb.PbFieldType.PM, protoName: 'ignoreSources', subBuilder: DataSource.create)
     ..hasRequiredFields = false
@@ -327,7 +327,7 @@ class AggregateRequest extends $pb.GeneratedMessage {
   void clearUserId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.List<$0.Tag> get tags => $_getList(1);
+  $core.List<$3.Tag> get tags => $_getList(1);
 
   @$pb.TagNumber(3)
   $core.List<DataSource> get sources => $_getList(2);

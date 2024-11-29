@@ -1,3 +1,5 @@
 {
-    "java.compile.nullAnalysis.mode": "disabled"
+    "java.compile.nullAnalysis.mode": "disabled",
+    "cmake.sourceDirectory": "C:/Users/Beefaroni/sonable_ai/SonableAI/sonableai/linux",
+    "java.configuration.updateBuildConfiguration": "interactive"
 }

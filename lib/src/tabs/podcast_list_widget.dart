@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sonableai/bloc/podcasts_bloc.dart';
 import 'package:sonableai/bloc/podcasts_events.dart';
 import 'package:sonableai/bloc/podcasts_state.dart';
-import 'package:sonableai/services/schema.pb.dart';
+import 'package:sonableai/services/PodcastMessages.pb.dart';
 
 class PodcastListWidget extends StatelessWidget {
   const PodcastListWidget({super.key});
@@ -59,6 +59,7 @@ class PodcastListWidget extends StatelessWidget {
   }
 
   Future<void> episodesDialog(BuildContext context, List<PodcastEpisode> eps) {
+    PodcastsBloc bloc = BlocProvider.of<PodcastsBloc>(context);
     return showDialog<void>(
       context: context,
       builder: (context) {
@@ -83,6 +84,7 @@ class PodcastListWidget extends StatelessWidget {
                           TextButton(
                             child: const Text("Listen"),
                             onPressed: () {
+                              bloc.add(const HealthCheckEvent());
                               //listen
                             }
                           ),

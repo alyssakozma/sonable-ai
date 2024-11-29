@@ -19,3 +19,8 @@ class LoadEpisodesEvent extends PodcastsBlocEvent {
 class PlayEpisodeEvent extends PodcastsBlocEvent {
   const PlayEpisodeEvent();
 }
+
+@immutable
+class HealthCheckEvent extends PodcastsBlocEvent {
+  const HealthCheckEvent();
+}

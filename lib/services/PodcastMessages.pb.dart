@@ -13,7 +13,7 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import 'Base.pb.dart' as $0;
+import 'Base.pb.dart' as $3;
 
 ///
 /// Contains lots of data that will be used to personalize the voice and personalities of each host.
@@ -22,8 +22,8 @@ class PodcastHost extends $pb.GeneratedMessage {
     $core.int? id,
     $core.String? name,
     $core.String? gender,
-    $core.Iterable<$0.Tag>? voiceTags,
-    $core.Iterable<$0.Tag>? personalityTags,
+    $core.Iterable<$3.Tag>? voiceTags,
+    $core.Iterable<$3.Tag>? personalityTags,
   }) {
     final $result = create();
     if (id != null) {
@@ -51,8 +51,8 @@ class PodcastHost extends $pb.GeneratedMessage {
     ..a<$core.int>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.O3)
     ..aOS(2, _omitFieldNames ? '' : 'name')
     ..aOS(3, _omitFieldNames ? '' : 'gender')
-    ..pc<$0.Tag>(4, _omitFieldNames ? '' : 'voiceTags', $pb.PbFieldType.PM, protoName: 'voiceTags', subBuilder: $0.Tag.create)
-    ..pc<$0.Tag>(5, _omitFieldNames ? '' : 'personalityTags', $pb.PbFieldType.PM, protoName: 'personalityTags', subBuilder: $0.Tag.create)
+    ..pc<$3.Tag>(4, _omitFieldNames ? '' : 'voiceTags', $pb.PbFieldType.PM, protoName: 'voiceTags', subBuilder: $3.Tag.create)
+    ..pc<$3.Tag>(5, _omitFieldNames ? '' : 'personalityTags', $pb.PbFieldType.PM, protoName: 'personalityTags', subBuilder: $3.Tag.create)
     ..hasRequiredFields = false
   ;
 
@@ -105,10 +105,10 @@ class PodcastHost extends $pb.GeneratedMessage {
   void clearGender() => clearField(3);
 
   @$pb.TagNumber(4)
-  $core.List<$0.Tag> get voiceTags => $_getList(3);
+  $core.List<$3.Tag> get voiceTags => $_getList(3);
 
   @$pb.TagNumber(5)
-  $core.List<$0.Tag> get personalityTags => $_getList(4);
+  $core.List<$3.Tag> get personalityTags => $_getList(4);
 }
 
 ///
@@ -117,7 +117,7 @@ class PodcastEpisode extends $pb.GeneratedMessage {
   factory PodcastEpisode({
     $core.int? id,
     $core.String? name,
-    $0.Date? date,
+    $3.Date? date,
     $core.String? summary,
   }) {
     final $result = create();
@@ -142,7 +142,7 @@ class PodcastEpisode extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'PodcastEpisode', package: const $pb.PackageName(_omitMessageNames ? '' : 'generated'), createEmptyInstance: create)
     ..a<$core.int>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.O3)
     ..aOS(2, _omitFieldNames ? '' : 'name')
-    ..aOM<$0.Date>(3, _omitFieldNames ? '' : 'date', subBuilder: $0.Date.create)
+    ..aOM<$3.Date>(3, _omitFieldNames ? '' : 'date', subBuilder: $3.Date.create)
     ..aOS(4, _omitFieldNames ? '' : 'summary')
     ..hasRequiredFields = false
   ;
@@ -187,15 +187,15 @@ class PodcastEpisode extends $pb.GeneratedMessage {
   void clearName() => clearField(2);
 
   @$pb.TagNumber(3)
-  $0.Date get date => $_getN(2);
+  $3.Date get date => $_getN(2);
   @$pb.TagNumber(3)
-  set date($0.Date v) { setField(3, v); }
+  set date($3.Date v) { setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasDate() => $_has(2);
   @$pb.TagNumber(3)
   void clearDate() => clearField(3);
   @$pb.TagNumber(3)
-  $0.Date ensureDate() => $_ensure(2);
+  $3.Date ensureDate() => $_ensure(2);
 
   @$pb.TagNumber(4)
   $core.String get summary => $_getSZ(3);
@@ -213,7 +213,7 @@ class Podcast extends $pb.GeneratedMessage {
   factory Podcast({
     $core.int? id,
     $core.String? name,
-    $core.Iterable<$0.Tag>? topics,
+    $core.Iterable<$3.Tag>? topics,
     $core.Iterable<PodcastHost>? hosts,
   }) {
     final $result = create();
@@ -238,7 +238,7 @@ class Podcast extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'Podcast', package: const $pb.PackageName(_omitMessageNames ? '' : 'generated'), createEmptyInstance: create)
     ..a<$core.int>(1, _omitFieldNames ? '' : 'id', $pb.PbFieldType.O3)
     ..aOS(2, _omitFieldNames ? '' : 'name')
-    ..pc<$0.Tag>(3, _omitFieldNames ? '' : 'topics', $pb.PbFieldType.PM, subBuilder: $0.Tag.create)
+    ..pc<$3.Tag>(3, _omitFieldNames ? '' : 'topics', $pb.PbFieldType.PM, subBuilder: $3.Tag.create)
     ..pc<PodcastHost>(4, _omitFieldNames ? '' : 'hosts', $pb.PbFieldType.PM, subBuilder: PodcastHost.create)
     ..hasRequiredFields = false
   ;
@@ -283,7 +283,7 @@ class Podcast extends $pb.GeneratedMessage {
   void clearName() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.List<$0.Tag> get topics => $_getList(2);
+  $core.List<$3.Tag> get topics => $_getList(2);
 
   @$pb.TagNumber(4)
   $core.List<PodcastHost> get hosts => $_getList(3);
