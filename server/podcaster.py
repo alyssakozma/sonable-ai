@@ -162,10 +162,11 @@ import ast
 import grpc
 import generated.PodcastService_pb2 as PodcastService_pb2
 import generated.PodcastService_pb2_grpc as PodcastService_pb2_grpc
+import generated.PodcastMessages_pb2 as PodcastMessages
 
 device = "cpu"
 
-preload_models()
+# preload_models()
 load_dotenv()
 
 NEWS_API_KEY=os.getenv("NEWS_API_KEY")
@@ -335,7 +336,7 @@ class PodcastService(PodcastService_pb2_grpc.PodcastServiceServicer):
             yield PodcastService_pb2.PodcastAudio(data=chunk)
             time.sleep(0.1)
     def HealthCheck(self, request, context):
-        return PodcastService_pb2.PodcastServiceHealthResponse(status=1)
+        return PodcastMessages.PodcastServiceHealthResponse(status=1)
 
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))

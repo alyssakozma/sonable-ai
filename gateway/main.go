@@ -16,12 +16,12 @@ func main() {
 	podcastsServiceAddr := "localhost:50051"
 	conn, err := grpc.NewClient(podcastsServiceAddr, grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
-		log.Fatalf("Could not reach podcasts service.", err)
+		log.Fatal("Could not reach podcasts service.", err)
 	}
 	defer conn.Close()
 	mux := runtime.NewServeMux()
 	if err = gw.RegisterPodcastServiceHandler(context.Background(), mux, conn); err != nil {
-		log.Fatalf("Failed to register podcasts service.", err)
+		log.Fatal("Failed to register podcasts service.", err)
 	}
 
 	addr := "0.0.0.0:8080"
