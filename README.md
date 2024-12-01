@@ -4,13 +4,21 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application that follows the
-[simple app state management
-tutorial](https://flutter.dev/to/state-management-sample).
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```
+$>echo "
+NEWS_API_KEY=$NewsAPI_Key
+GROQ_API_KEY=$GroqAPI_Key
+NVIDIA_API_KEY=$NvidiaAPI_Key
+" > ./server/.env
+$>cd server
+$>python podcaster.py
+$>cd ../gateway
+$>go build -o gateway(.exe, if needed)
+$>./gateweay(.exe, if needed)
+$>cd ../
+$>flutter pub get
+$>flutter run
+```
 
 ## Assets
 
