@@ -84,11 +84,11 @@ class PodcastListWidget extends StatelessWidget {
                           TextButton(
                             child: const Text("Listen"),
                             onPressed: () {
-                              bloc.add(const HealthCheckEvent());
+                              bloc.add(const PlayEpisodeEvent());
                               //listen
                             }
                           ),
-                          TextButton(child: const Text("Info"), onPressed: () { /*info page*/ })
+                          TextButton(child: const Text("Info"), onPressed: () { bloc.add(const HealthCheckEvent()); })
                         ]
                       )
                     ]

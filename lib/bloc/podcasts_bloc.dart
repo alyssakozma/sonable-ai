@@ -1,3 +1,6 @@
+import "dart:convert";
+import "dart:typed_data";
+
 import "package:flutter_bloc/flutter_bloc.dart";
 import "package:just_audio/just_audio.dart";
 import "package:sonableai/bloc/podcasts_events.dart";
@@ -8,6 +11,24 @@ import 'package:http/http.dart' as http;
 
 const gatewayUrl = "192.168.68.60";
 const gatewayPort = "8080";
+
+class MyJABytesSource extends StreamAudioSource {
+  final Uint8List _buffer;
+
+  MyJABytesSource(this._buffer) : super(tag: 'MyAudioSource');
+
+  @override
+  Future<StreamAudioResponse> request([int? start, int? end]) async {
+    // Returning the stream audio response with the parameters
+    return StreamAudioResponse(
+      sourceLength: _buffer.length,
+      contentLength: (end ?? _buffer.length) - (start ?? 0),
+      offset: start ?? 0,
+      stream: Stream.fromIterable([_buffer.sublist(start ?? 0, end)]),
+      contentType: 'audio/wav',
+    );
+  }
+}
 
 class PodcastsBloc extends Bloc {
   PodcastsBloc() : super(PodcastsState.empty()) {
@@ -20,7 +41,20 @@ class PodcastsBloc extends Bloc {
           print("ERROR");
         }
       });
-    on<PlayEpisodeEvent>((event, emit) {
+    on<PlayEpisodeEvent>((event, emit) async {
+      final response = await
+        http.post(Uri.parse('http://$gatewayUrl:$gatewayPort/v1/podcasts/stream'), body: json.encode({'podcastId': 1, 'episodeId': 1}));
+      if (response.statusCode == 200) {
+        AudioPlayer pl = state.player;
+        pl.setAudioSource(MyJABytesSource(response.bodyBytes));
+        pl.setVolume(100);
+        pl.play();
+        //listen to the thang
+      } else {
+        final err = response.body;
+        final code = response.statusCode;
+        print('error retrieving episode: $code, $err');
+      }
       /*
       final channel = ClientChannel('127.0.0.1',
         port: 50051,
