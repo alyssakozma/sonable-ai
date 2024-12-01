@@ -244,7 +244,7 @@ def createPodcastText(query):
         model = "llama3-8b-8192",
         max_tokens=8192
     )
-    intro_completion = pipeline(
+    intro_completion = pipeline.chat.completions.create(
         model="meta/llama3-8b-instruct",
         messages = [
             {"role": "system", "content": DETAIL_PROMPT},
@@ -253,7 +253,6 @@ def createPodcastText(query):
         temperature=0.5,
         top_p=1,
         max_tokens=1024,
-        stream=True
     )
     section_a = groq_client.chat.completions.create(
         messages = [
@@ -263,7 +262,7 @@ def createPodcastText(query):
         model = "llama3-8b-8192",
         max_tokens=8192
     )
-    section_a = pipeline(
+    section_a = pipeline.chat.completions.create(
         model="meta/llama3-8b-instruct",
         messages = [
             {"role": "system", "content": DETAIL_PROMPT + "DO NOT WELCOME THE AUDIENCE OR PREFACE THE DISCUSSION IN ANY WAY."},
@@ -272,7 +271,6 @@ def createPodcastText(query):
         temperature=0.5,
         top_p=1,
         max_tokens=1024,
-        stream=True
     )
     section_b = groq_client.chat.completions.create(
         messages = [
@@ -282,7 +280,7 @@ def createPodcastText(query):
         model = "llama3-8b-8192",
         max_tokens=8192
     )
-    section_b = pipeline(
+    section_b = pipeline.chat.completions.create(
         model="meta/llama3-8b-instruct",
         messages = [
             {"role": "system", "content": DETAIL_PROMPT + "DO NOT WELCOME THE AUDIENCE OR PREFACE THE DISCUSSION IN ANY WAY."},
@@ -291,7 +289,6 @@ def createPodcastText(query):
         temperature=0.5,
         top_p=1,
         max_tokens=1024,
-        stream=True
     )
     
     outro = groq_client.chat.completions.create(
@@ -303,7 +300,7 @@ def createPodcastText(query):
         max_tokens=8192
     )
 
-    outro = pipeline(
+    outro = pipeline.chat.completions.create(
         model="meta/llama3-8b-instruct",
         messages = [
             {"role": "system", "content": DETAIL_PROMPT + "DO NOT WELCOME THE AUDIENCE OR PREFACE THE DISCUSSION IN ANY WAY. MAKE SURE TO END THE PODCAST AT THE END BY SIGNING OFF. DO NOT GO INTO DETAIL ABOUT THE ARTICLES, SIMPLY TALK ABOUT THEM IN RETROSPECT, AS IF YOU HAVE ALREADY READ THEM. NEITHER SPEAKER SHOULD INTRODUCE NEW ARTICLES FOR DISCUSSION AT THIS POINT."},
@@ -312,7 +309,6 @@ def createPodcastText(query):
         temperature=0.5,
         top_p=1,
         max_tokens=1024,
-        stream=True
     )
 
     print("Done.")
