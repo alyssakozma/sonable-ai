@@ -11,6 +11,9 @@
 migrate_working_dir/
 *.env
 *.exe
+server/*.env
+gateway/gateway
+gateway/gateway.exe
 
 # IntelliJ related
 *.iml
